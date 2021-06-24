@@ -1,0 +1,12 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<VBox fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.common.DateTimeController" id="dateTime" alignment="BOTTOM_RIGHT"
+      prefHeight="200.0" prefWidth="100.0" spacing="5" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="time" styleClass="time" />
+    <Label fx:id="date" styleClass="date"/>
+    <Label fx:id="day" styleClass="day"/>
+    <padding>
+        <Insets bottom="10"/>
+    </padding>
+</VBox>

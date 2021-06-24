@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import java.net.URL?>
+<?import sk.cybersoft.cybernotes.cybernotesapplication.components.CloseButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<BorderPane fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique.LoginMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <bottom>
+        <fx:include source="../common/DateTime.fxml" fx:id="dateTime"/>
+    </bottom>
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER">
+                <Label fx:id="usernameError" labelFor="$username" styleClass="errorLabel" visible="false" managed="false"/>
+                <TextField fx:id="username" promptText="Username"/>
+            </VBox>
+            <VBox alignment="CENTER">
+                <Label fx:id="passwordError" labelFor="$password" styleClass="errorLabel" visible="false" managed="false"/>
+                <PasswordField fx:id="password" promptText="Password"/>
+            </VBox>
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" text="Login" onAction="#loginAttempt"/>
+            <CloseButton mnemonicParsing="false" text="Exit"/>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@MainMenu.css"/>
+    </stylesheets>
+</BorderPane>

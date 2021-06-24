@@ -1,0 +1,92 @@
+.root {
+    -fx-background-image: url("/mountain.jpg");
+    -fx-background-size: cover;
+}
+
+.date,.time,.day {
+    -fx-font-size: 32px;
+    -fx-text-fill: white;
+    -fx-font-family: "Verdana";
+    -fx-opacity: 0.8;
+    -fx-padding: 0 10px 0 0;
+}
+
+.button, .text-field {
+    -fx-pref-width: 150px;
+    -fx-pref-height: 60px;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-opacity: 0.8;
+
+    -fx-text-fill: #8db5c4;
+
+    -fx-background-insets: 0;
+}
+
+.text-field {
+    -fx-max-width: 250px;
+    -fx-prompt-text-fill:darkgray;
+}
+
+.text-area {
+    -fx-font-size: 15px;
+
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-opacity: 0.8;
+
+    -fx-max-width: 800px;
+
+    -fx-background-insets: 0;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.text-field:focused {
+    -fx-prompt-text-fill:darkgray;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-pref-width: 1;
+    -fx-opacity: 0;
+}
+.text-area .scroll-bar:horizontal {
+    -fx-pref-height: 1;
+    -fx-opacity: 0;
+}
+
+.button:hover {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+    -fx-effect: null;
+
+    -fx-background-insets: 0;
+}
+
+.button:focused {
+    -fx-background-insets: 0;
+}
+
+.errorLabel {
+    -fx-text-fill: red;
+    -fx-font-size: 15px;
+    -fx-opacity: 0.8;
+}
+
+.hasError {
+    -fx-border-radius: 20px;
+    -fx-border-color: red;
+}
