@@ -17,4 +17,16 @@ public abstract class FileUtility {
 
         outputStream.close();
     }
+
+    public static Boolean fileAlreadyExist(String fileName) {
+        File directory = new File(Info.getNotesPath());
+
+        for(File file : directory.listFiles()){
+            if(file.getName().equals(fileName)) return true;
+        }
+
+        return false;
+
+
+    }
 }

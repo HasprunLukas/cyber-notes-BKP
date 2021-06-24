@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.Info;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.SceneSwitcher;
+import sk.cybersoft.cybernotes.cybernotesapplication.utility.FileUtility;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,13 +33,18 @@ public class NewNoteNameMenuController implements Initializable {
     public void saveName(ActionEvent actionEvent) {
         nameError.setVisible(false);
         name.getStyleClass().remove("hasError");
+        String fileName = this.name.getText().trim();
 
-        if(this.name.getText() == null || this.name.getText().trim().isEmpty()) {
+        if(fileName.isEmpty()) {
             nameError.setText("Name must be set!");
             nameError.setVisible(true);
             name.getStyleClass().add("hasError");
+        } else if(FileUtility.fileAlreadyExist(fileName + ".txt")) {
+            nameError.setText("File already exists!");
+            nameError.setVisible(true);
+            name.getStyleClass().add("hasError");
         } else {
-            Info.setNewNoteName(this.name.getText());
+            Info.setNewNoteName(fileName);
             try {
                 SceneSwitcher.switchScene(this.name, "/unique/NewNoteContentMenu.fxml");
             } catch (IOException e) {
