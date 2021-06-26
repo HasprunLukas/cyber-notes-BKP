@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS USER (
 
 CREATE TABLE IF NOT EXISTS NOTE (
                                 id LONG AUTO_INCREMENT PRIMARY KEY,
+                                title VARCHAR(255),
                                 text CLOB,
                                 user_id LONG NOT NULL,
                                 CONSTRAINT fk_user_id FOREIGN KEY (user_id) references USER (id)

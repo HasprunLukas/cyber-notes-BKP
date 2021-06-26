@@ -8,7 +8,6 @@ module cyber.notes.application {
 
     requires com.fasterxml.jackson.databind;
 
-
     opens sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique;
     opens sk.cybersoft.cybernotes.cybernotesapplication.controllers.common;
     opens sk.cybersoft.cybernotes.cybernotesapplication;

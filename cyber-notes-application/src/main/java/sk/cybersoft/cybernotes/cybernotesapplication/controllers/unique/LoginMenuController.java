@@ -72,6 +72,7 @@ public class LoginMenuController implements Initializable {
         for(User user : users) {
             if(user.getUsername().equals(this.username.getText())) {
                 if(user.getPassword().equals(this.password.getText())) err = false;
+                Info.setUser(user);
                 break;
             }
         }

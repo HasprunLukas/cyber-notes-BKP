@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 
 <?import java.net.URL?>
-<BorderPane fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique.SettingsController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import sk.cybersoft.cybernotes.cybernotesapplication.components.SceneTransitionButton?>
+<BorderPane fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique.SettingsMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
         <fx:include source="../common/DateTime.fxml" fx:id="dateTime"/>
     </bottom>
@@ -16,7 +16,7 @@
     </top>
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
-            <Button mnemonicParsing="false" text="Back"/>
+            <SceneTransitionButton mnemonicParsing="false" text="Back" scenePath="/unique/MainMenu.fxml"/>
         </VBox>
     </center>
 

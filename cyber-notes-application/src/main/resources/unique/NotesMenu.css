@@ -1,1 +1,9 @@
 @import "../common/app.css";
+
+.labelClickable {
+    -fx-text-fill: blue;
+    -fx-border-insets: 50px;
+}
+.labelClickable:hover {
+    -fx-underline: true;
+}

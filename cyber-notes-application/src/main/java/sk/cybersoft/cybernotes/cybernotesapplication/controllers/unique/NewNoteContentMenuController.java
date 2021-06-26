@@ -5,12 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import sk.cybersoft.cybernotes.cybernotesapplication.utility.FileUtility;
+import sk.cybersoft.cybernotes.cybernotesapplication.utility.HttpUtility;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.Info;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.SceneSwitcher;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class NewNoteContentMenuController implements Initializable {
@@ -28,10 +29,16 @@ public class NewNoteContentMenuController implements Initializable {
 
     public void save(ActionEvent actionEvent) {
         try {
-            FileUtility.saveToFile(this.content.getText(), Info.getNewNoteName());
+            String content = this.content.getText();
+            HashMap<String, Object> values = new HashMap<>() {{
+                put("title", Info.getNewNoteName());
+                put("text", content);
+                put("user", new HashMap<>(){{put("id", Info.getUser().getId());}});
+            }};
+            HttpUtility.postHttp(Info.getDatabaseUrl() + "/note", values);
             Info.setNewNoteName(null);
             SceneSwitcher.switchScene(this.saveButton, "/unique/NotesMenu.fxml");
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

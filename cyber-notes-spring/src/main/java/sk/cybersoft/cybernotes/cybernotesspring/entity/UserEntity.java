@@ -1,7 +1,14 @@
 package sk.cybersoft.cybernotes.cybernotesspring.entity;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "user")
 public class UserEntity {
@@ -16,6 +23,9 @@ public class UserEntity {
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<NoteEntity> notes = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -39,5 +49,17 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<NoteEntity> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Set<NoteEntity> notes) {
+        this.notes = notes;
+
+        for(NoteEntity note : notes) {
+            note.setUser(this);
+        }
     }
 }

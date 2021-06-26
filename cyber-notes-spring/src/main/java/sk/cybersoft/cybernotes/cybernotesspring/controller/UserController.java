@@ -4,12 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sk.cybersoft.cybernotes.cybernotesspring.entity.NoteEntity;
 import sk.cybersoft.cybernotes.cybernotesspring.entity.UserEntity;
 import sk.cybersoft.cybernotes.cybernotesspring.exception.ResourceNotFoundException;
+import sk.cybersoft.cybernotes.cybernotesspring.repository.NoteRepository;
 import sk.cybersoft.cybernotes.cybernotesspring.repository.UserRepository;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/user")
@@ -24,7 +27,6 @@ public class UserController {
 
     @GetMapping("{id}")
     public ResponseEntity<UserEntity> findById(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
-
         return new ResponseEntity<>(userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User with id: " + userId + " not found!")), HttpStatus.OK);
     }

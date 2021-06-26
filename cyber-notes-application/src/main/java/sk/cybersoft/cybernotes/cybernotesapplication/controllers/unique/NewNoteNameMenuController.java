@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.Info;
 import sk.cybersoft.cybernotes.cybernotesapplication.utility.SceneSwitcher;
-import sk.cybersoft.cybernotes.cybernotesapplication.utility.FileUtility;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,10 +36,6 @@ public class NewNoteNameMenuController implements Initializable {
 
         if(fileName.isEmpty()) {
             nameError.setText("Name must be set!");
-            nameError.setVisible(true);
-            name.getStyleClass().add("hasError");
-        } else if(FileUtility.fileAlreadyExist(fileName + ".txt")) {
-            nameError.setText("File already exists!");
             nameError.setVisible(true);
             name.getStyleClass().add("hasError");
         } else {

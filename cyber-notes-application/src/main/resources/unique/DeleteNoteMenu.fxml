@@ -7,8 +7,8 @@
 
 <?import java.net.URL?>
 <?import sk.cybersoft.cybernotes.cybernotesapplication.components.SceneTransitionButton?>
-<?import javafx.scene.control.ListView?>
-<BorderPane fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique.NotesMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.Button?>
+<BorderPane fx:controller="sk.cybersoft.cybernotes.cybernotesapplication.controllers.unique.DeleteNoteMenuController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
         <fx:include source="../common/DateTime.fxml" fx:id="dateTime"/>
     </bottom>
@@ -17,13 +17,12 @@
     </top>
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
-            <ListView fx:id="notesList" />
-            <SceneTransitionButton mnemonicParsing="false" text="New note" scenePath="/unique/NewNoteNameMenu.fxml"/>
-            <SceneTransitionButton mnemonicParsing="false" text="Back" scenePath="/unique/MainMenu.fxml"/>
+            <Button mnemonicParsing="false" text="Delete" fx:id="deleteNoteButton" onAction="#deleteNote"/>
+            <SceneTransitionButton mnemonicParsing="false" text="Cancel" scenePath="/unique/NotesMenu.fxml"/>
         </VBox>
     </center>
 
     <stylesheets>
-        <URL value="@NotesMenu.css"/>
+        <URL value="@DeleteNoteMenu.css"/>
     </stylesheets>
 </BorderPane>

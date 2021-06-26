@@ -1,3 +1,5 @@
-insert into USER select * from (
-                                            select 0, 'admin' as xUsername,'admin' as xPassword
-                                       ) x where not exists(select * from USER);
+merge into USER key(ID)
+values (0, 'admin', 'admin');
+
+merge into NOTE key(ID)
+values (0, 'nazov1', 'text1', 0);
