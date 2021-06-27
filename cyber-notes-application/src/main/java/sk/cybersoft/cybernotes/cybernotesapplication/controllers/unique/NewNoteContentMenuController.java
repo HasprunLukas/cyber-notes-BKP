@@ -11,6 +11,7 @@ import sk.cybersoft.cybernotes.cybernotesapplication.utility.SceneSwitcher;
 
 import java.io.IOException;
 import java.net.URL;
+import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -35,7 +36,7 @@ public class NewNoteContentMenuController implements Initializable {
                 put("text", content);
                 put("user", new HashMap<>(){{put("id", Info.getUser().getId());}});
             }};
-            HttpUtility.postHttp(Info.getDatabaseUrl() + "/note", values);
+            HttpResponse<String> response = HttpUtility.postHttp(Info.getDatabaseUrl() + "/note", values);
             Info.setNewNoteName(null);
             SceneSwitcher.switchScene(this.saveButton, "/unique/NotesMenu.fxml");
         } catch (IOException | InterruptedException e) {

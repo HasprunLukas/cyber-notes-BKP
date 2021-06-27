@@ -34,6 +34,19 @@ public abstract class HttpUtility {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
+    public static HttpResponse<String> putHttp(String url, HashMap<String, Object> values) throws IOException, InterruptedException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String requestBody = objectMapper.writeValueAsString(values);
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .headers("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.ofString(requestBody))
+                .build();
+
+        return client.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
     public static HttpResponse<String> deleteHttp(String url) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

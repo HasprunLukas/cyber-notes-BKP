@@ -41,7 +41,14 @@ public class NotesMenuController implements Initializable {
                 delete.getStyleClass().add("labelClickable");
                 hBox.getChildren().addAll(label, pane, edit, delete);
                 HBox.setHgrow(pane, Priority.ALWAYS);
-                edit.setOnMouseClicked(event -> System.out.println(note.getText()));
+                edit.setOnMouseClicked(event -> {
+                    Info.setNote(note);
+                    try {
+                        SceneSwitcher.switchScene(notesList, "/unique/EditNoteContentMenu.fxml");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
                 delete.setOnMouseClicked(event -> {
                     try {
                         Info.setNote(note);
